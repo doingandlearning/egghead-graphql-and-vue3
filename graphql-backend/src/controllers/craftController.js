@@ -50,8 +50,6 @@ exports.updateCraft = async (request, reply) => {
   try {
     const id = request.params ? request.params.id : request.id;
     const fields = request.body ? request.body : request;
-    await new Promise((resolve, reject) => setTimeout(reject, 2000));
-    // await new Promise((resolve) => setTimeout(resolve, 2000));
     const update = await Craft.findByIdAndUpdate(id, fields, { new: true });
     return update;
   } catch (error) {
